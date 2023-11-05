@@ -1,0 +1,88 @@
+@font-face {
+ font-family: starjhol;
+ src: url("../fonts/Starjhol.ttf");
+}
+
+body {
+ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ background-image: url('../images/pexels-francesco-ungaro-998641.jpg');
+ background-size: cover;
+ background-position: center;
+ background-repeat: repeat-y;
+ text-align: center;
+ margin: 0;
+ padding: 0;
+ color: #ffffff;
+}
+
+h1 {
+ color: #FFE81F;
+ font-family: starjhol, sans-serif;
+ font-size: 60px;
+ margin-top: 50px;
+ text-shadow: 2px 2px 4px #000000, 0 0 25px #FFE81F;
+}
+
+a {
+ display: inline-block;
+ margin: 20px 0;
+ padding: 15px 30px;
+ color: #ffffff;
+ text-decoration: none;
+ border-radius: 50px;
+ width: 200px;
+ transition: transform 0.3s, box-shadow 0.3s, color 0.3s;
+}
+
+a.blue {
+ background: linear-gradient(45deg, #0000FF, #0033FF);
+ box-shadow: 0 0 10px #0033FF, 0 0 20px #0033FF, 0 0 40px #0033FF, 0 0 80px #0033FF;
+}
+
+a.red {
+ background: linear-gradient(45deg, #FF0000, #FF3300);
+ box-shadow: 0 0 10px #FF3300, 0 0 20px #FF3300, 0 0 40px #FF3300, 0 0 80px #FF3300;
+}
+
+a.green {
+ background: linear-gradient(45deg, #00FF00, #33FF00);
+ box-shadow: 0 0 10px #33FF00, 0 0 20px #33FF00, 0 0 40px #33FF00, 0 0 80px #33FF00;
+}
+
+a:hover {
+ transform: scale(1.1);
+ box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6), 0 0 25px #ffffff;
+ color: #ffffff;
+}
+
+.opening-crawl {
+ margin: auto;
+ height: 100vh;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ text-align: left;
+ flex-direction: column;
+ position: relative;
+ overflow: hidden;
+}
+
+.opening-crawl h1 {
+ font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+ font-weight: lighter;
+ color: #24ccdf;
+ font-size: 60px;
+ line-height: 1.5;
+ animation: scroll 30s linear;
+ text-shadow: 2px 2px 4px #000000, 0 0 25px #24ccdf;
+}
+
+@keyframes scroll {
+ 0% {
+  transform: translateY(100%);
+ }
+
+ 100% {
+  transform: translateY(-100%);
+ }
+}
