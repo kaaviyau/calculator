@@ -6,26 +6,58 @@
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <title>Advanced Calculator</title>
  <link rel="stylesheet" href="../css/styles3.css">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.1.0/math.min.js"></script>
 </head>
 
 <body>
- <embed name="theme" src="../music/duel_of_the_fates.mp3" loop="false" hidden="true" autostart="true">
  <div class="calculator">
-  <input type="text" class="display" disabled>
+  <input type="text" class="display" id="equationInput" placeholder="Enter an algebraic equation in x">
+  <input type="text" class="display" id="result" disabled>
   <div class="keypad">
-   <button>Integrate</button>
-   <button>Differentiate</button>
-   <button>Convolution</button>
-   <button class="equal">Calculate</button>
-   <button class="clear">Clear</button>
+   <button id="differentiationBtn" onclick="differentiate()">Differentiate</button>
+   <button class="equal" onclick="calculate()">Calculate</button>
+   <button class="clear" onclick="clearDisplay()">Clear</button>
   </div>
  </div>
+
+ <script>
+  function differentiate() {
+   var inputExpression = document.getElementById('equationInput').value;
+
+   try {
+    // Symbolic differentiation using mathjs
+    var result = math.derivative(inputExpression, 'x');
+    document.getElementById('result').value = result.toString();
+   } catch (error) {
+    document.getElementById('result').value = 'Error';
+   }
+  }
+
+  function clearDisplay() {
+   document.getElementById('equationInput').value = '';
+   document.getElementById('result').value = '';
+  }
+
+  function calculate() {
+   var inputExpression = document.getElementById('equationInput').value;
+
+   try {
+    // Evaluate the expression using mathjs
+    var simplifiedExpression = math.simplify(inputExpression);
+    document.getElementById('result').value = simplifiedExpression.toString();
+   } catch (error) {
+    document.getElementById('result').value = 'Error';
+   }
+  }
+ </script>
+
+ <footer>
+  <div class="back">
+   <a class='blue' href="../index.html">Home Page</a>
+   <br>
+   <a class='red' href="simple_calculator.html">Simple Calculator</a>
+  </div>
+ </footer>
 </body>
-<footer>
- <div class="back">
-  <a class = 'blue' href="/index.html">Home Page</a>
-  <br>
-  <a class = 'red' href="simple_calculator.html">Simple Calculator</a>
- </div>
-</footer>
+
 </html>
